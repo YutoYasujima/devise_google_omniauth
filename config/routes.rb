@@ -3,7 +3,8 @@ Rails.application.routes.draw do
     # UserのSessionsControllerには、Users::SessionsControllerを利用する。他のコントローラーも同じように修正する。
     sessions:      "users/sessions",
     passwords:     "users/passwords",
-    registrations: "users/registrations"
+    registrations: "users/registrations",
+    omniauth_callbacks: "users/omniauth_callbacks" # Google認証用
   }
 
   devise_scope :user do

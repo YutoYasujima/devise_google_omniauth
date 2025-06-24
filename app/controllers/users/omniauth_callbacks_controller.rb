@@ -10,13 +10,13 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to homes_path
     else
       session["devise.google_data"] = request.env["omniauth.auth"].except(:extra)
-      redirect_to new_user_registration_url, alert: 'Googleログインに失敗しました'
+      redirect_to new_user_registration_url, alert: "Googleログインに失敗しました"
     end
   end
 
   # OmniAuth が自動的に失敗した場合（ユーザーがキャンセルした、認証が壊れた等）に呼ばれる
   # トップページへリダイレクトして、失敗メッセージを表示
   def failure
-    redirect_to root_path, alert: 'Googleログインに失敗しました'
+    redirect_to root_path, alert: "Googleログインに失敗しました"
   end
 end

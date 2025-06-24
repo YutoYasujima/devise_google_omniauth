@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :validatable,
-        :omniauthable, omniauth_providers: [:google_oauth2] # Google認証設定
+        :omniauthable, omniauth_providers: [ :google_oauth2 ] # Google認証設定
 
   # Googleログイン(OmniAuth)を通じて認証されたユーザー情報から、
   # アプリ側のUserレコードを探す or 作成する処理

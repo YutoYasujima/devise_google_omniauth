@@ -13,5 +13,7 @@ Rails.application.routes.draw do
 
   resources :homes, only: %i[ index ]
 
+  resources :profiles, only: %i[ new create ]
+
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end

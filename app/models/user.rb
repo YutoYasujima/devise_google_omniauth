@@ -5,6 +5,10 @@ class User < ApplicationRecord
         :recoverable, :rememberable, :validatable,
         :omniauthable, omniauth_providers: [ :google_oauth2 ] # Google認証設定
 
+  has_one :profile, dependent: :destroy
+
+  accepts_nested_attributes_for :profile
+
   # Googleログイン(OmniAuth)を通じて認証されたユーザー情報から、
   # アプリ側のUserレコードを探す or 作成する処理
   def self.from_omniauth(auth)

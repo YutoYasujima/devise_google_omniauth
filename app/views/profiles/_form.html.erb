@@ -1,0 +1,21 @@
+<%= form_with model: profile do |f| %>
+  <% if profile.errors.any? %>
+    <div class="mb-4 text-red-600">
+      <h2><%= pluralize(profile.errors.count, "エラー") %>が発生しました:</h2>
+      <ul class="list-disc list-inside">
+        <% profile.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-4">
+    <%= f.label :nickname, "ニックネーム", class: "block font-semibold mb-1" %>
+    <%= f.text_field :nickname, class: "w-full border border-gray-300 rounded p-2" %>
+  </div>
+
+  <div>
+    <%= f.submit "登録する", class: "bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" %>
+  </div>
+<% end %>

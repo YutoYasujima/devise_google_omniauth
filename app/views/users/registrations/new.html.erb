@@ -21,6 +21,14 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <%# ProfileモデルのデータをUserモデルのデータと同時に送信できる %>
+  <%= f.fields_for :profile do |pf| %>
+    <div>
+      <%= pf.label :nickname, "ニックネーム" %><br />
+      <%= pf.text_field :nickname %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit t('.sign_up') %>
   </div>
